@@ -13,14 +13,24 @@ docker run -d --link av:clamavd -p 8090:8090 --name secure-csv-uploader immontil
 http://localhost:8090/
 ```
 
-**Access to the console**
+**Gain access to the console**
 ```
 docker exec -it secure-csv-uploader sh
 ```
 
+**List the docker volumes**
+```
+docker volume ls
+```
+
+**See information about the volume *csv-files***
+```
+docker volume inspect csv-files
+```
+
 **List the uploaded files**
 ```
-docker exec -it secure-csv-uploader sh -c "ls -l /tmp/safe"
+sudo ls -l /var/lib/docker/volumes/csv-files/_data
 ```
 
 **See the secure-csv-uploader log**
