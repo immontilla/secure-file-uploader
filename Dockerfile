@@ -11,7 +11,5 @@ RUN mvn -DskipTests=true clean install && cp target/secure-upload-1.0.0.jar app.
 FROM openjdk:8-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/app.jar /app
-RUN mkdir /tmp/safe && mkdir /tmp/unsafe
-VOLUME /tmp
 EXPOSE 8090
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","app.jar"]
