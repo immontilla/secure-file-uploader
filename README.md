@@ -5,7 +5,7 @@ A secure CSV file uploading web app using open source software & libraries.
 docker run -d --name av mkodockx/docker-clamav
 ```
 ```
-docker run -d --link av:clamavd -p 8090:8090 --name secure-csv-uploader immontilla/secure-file-uploader
+docker run -d --link av:clamavd -v csv-files:/tmp/safe --tmpfs /tmp/unsafe -p 8090:8090 --name secure-csv-uploader immontilla/secure-file-uploader
 ```
 
 **Access the web app**
